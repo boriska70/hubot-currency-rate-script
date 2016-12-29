@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/boriska70/hubot-currency-rate-script.svg?branch=master)](https://travis-ci.org/boriska70/hubot-currency-rate-script)
+
+
 # hubot-currency-rate-script
 
 Currency exchange rate calculator. Powered by http://fixer.io/
