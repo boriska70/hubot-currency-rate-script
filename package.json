@@ -1,6 +1,6 @@
 {
-  "name": "hubot-hubot-currency-rate-script",
-  "description": "Get currencies exchange rate. Powered by http://fixer.io/",
+  "name": "hubot-currency-rate-script",
+  "description": "Currency exchange rate calculator. Powered by http://fixer.io/",
   "version": "0.0.0",
   "author": "boriska70@gmail.com <boriska70@gmail.com>",
   "license": "MIT",
@@ -9,11 +9,11 @@
 
   "repository": {
     "type": "git",
-    "url": "git://github.com/hubot-scripts/hubot-hubot-currency-rate-script.git"
+    "url": "git://github.com/boriska70/hubot-currency-rate-script.git"
   },
 
   "bugs": {
-    "url": "https://github.com/hubot-scripts/hubot-hubot-currency-rate-script/issues"
+    "url": "https://github.com/boriska70/hubot-currency-rate-script/issues"
   },
 
   "dependencies": {

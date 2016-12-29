@@ -1,5 +1,5 @@
 # Description
-#   Get currencies exchange rate. Powered by http://fixer.io/
+#   Currency exchange rate calculator. Powered by http://fixer.io/
 #
 # Configuration:
 #   LIST_OF_ENV_VARS_TO_SET

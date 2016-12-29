@@ -3,9 +3,9 @@ chai = require 'chai'
 
 expect = chai.expect
 
-helper = new Helper('../src/hubot-currency-rate-script.coffee')
+helper = new Helper('../src/currency-rate-script.coffee')
 
-describe 'hubot-currency-rate-script', ->
+describe 'currency-rate-script', ->
   beforeEach ->
     @room = helper.createRoom()
 
