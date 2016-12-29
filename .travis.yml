@@ -4,8 +4,11 @@ node_js:
   - "4.7.0"
   - "iojs"
 sudo: false
+before_install: npm install -g grunt-cli
 cache:
   directories:
     - node_modules
 notifications:
   email: false
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
