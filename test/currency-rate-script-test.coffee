@@ -18,11 +18,23 @@ describe 'currency-rate-script', ->
   afterEach ->
     @room.destroy()
 
+  it 'respond to rate-convert', ->
+    @room.user.say('alice', '@hubot rate-convert from USD to ILS 100').then =>
+      expect(@room.messages).to.eql [
+        ['alice', '@hubot rate-convert from USD to ILS 100']
+        ['hubot','Please wait...']
+      ]
+
+  it 'respond to rate-convert wrong format', ->
+    @room.user.say('alice', '@hubot rate-convert from USD to').then =>
+      expect(@room.messages).to.eql [
+        ['alice', '@hubot rate-convert from USD to']
+      ]
 
   it 'respond to rate call', ->
     @room.user.say('alice', '@hubot rate EUR').then =>
-      expect(@robot.respond).to.have.been.calledOnce
-      expect(@robot.respond).to.have.been.calledWith(/rate (.*)/i)
+#      expect(@robot.respond).to.have.been.calledOnce
+ #     expect(@robot.respond).to.have.been.calledWith(/rate ([A-Za-z]{3})/i)
       expect(@room.messages).to.eql [
         ['alice', '@hubot rate EUR']
         ['hubot','Please wait...']
