@@ -61,4 +61,5 @@ describe 'currency-rate-script', ->
         ['hubot', '@bob Use `rate-base XYZ` command to set base currency (default: USD).']
         ['hubot',
           '@bob Send message `rate ABC,DEF` to *me* to obtain the exchange rate for one or more currencies against the base currency']
+        ['hubot','@bob Sent rate-convert message to convert between currencies, for example: @hubot rate-convert from USD to EUR 100']
       ]

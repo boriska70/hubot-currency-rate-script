@@ -34,10 +34,16 @@ module.exports = (robot) ->
     task.amount = str.match(regexAmount)[1]
     task
 
+  getConvertCoeff = (str) ->
+# take rate from message like this Exchange rate at 2016-12-30 based on USD. Rate: EUR:0.94868
+    regexRate = /([A-Za-z]{3}:(.*))/i
+    str.match(regexRate)[1].substring(4)
+
   robot.hear /rate-help/i, (res) ->
     console.log('Executing ' + res.match[0])
     res.reply 'Use `rate-base XYZ` command to set base currency (default: USD).'
     res.reply 'Send message `rate ABC,DEF` to *me* to obtain the exchange rate for one or more currencies against the base currency'
+    res.reply('Sent rate-convert message to convert between currencies, for example: @hubot rate-convert from USD to EUR 100')
 
   robot.hear /rate-base (.*)/i, (res) ->
     console.log('Executing ' + res.match[0])
@@ -74,10 +80,6 @@ module.exports = (robot) ->
           console.log('Bad try: ' + resp.statusCode + ', body: ' + body)
           res.reply 'Sorry, cannot get it, received ' + body
         jbody = JSON.parse(body)
-        # take rate from message like this Exchange rate at 2016-12-30 based on USD. Rate: EUR:0.94868
-        regexRate = /([A-Za-z]{3}:(.*))/i
-        console.log(JSON.stringify(jbody.rates).replace(/[{}"]/g, ''))
-        coeff = JSON.stringify(jbody.rates).replace(/[{}"]/g, '').match(regexRate)[1].substring(4)
-        console.log 'Converting with coefficient ' + coeff
+        coeff = getConvertCoeff(JSON.stringify(jbody.rates).replace(/[{}"]/g, ''))
         res.reply 'Conversion result: ' + task.amount + ' ' + task.from + '=' + (task.amount * coeff) + ' ' + task.to
 
