@@ -11,7 +11,8 @@ cache:
   directories:
     - node_modules
 script:
-  - istanbul cover grunt test
+  - mocha --recursive --compilers coffee:coffee-script/register --require coffee-coverage/register-istanbul test
+  - istanbul report
 notifications:
   email: false
 after_success:
