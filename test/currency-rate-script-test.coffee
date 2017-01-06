@@ -2,6 +2,7 @@ Helper = require('hubot-test-helper')
 chai = require 'chai'
 sinon = require 'sinon'
 chai.use require 'sinon-chai'
+nock = require 'nock'
 
 expect = chai.expect
 
@@ -32,12 +33,15 @@ describe 'currency-rate-script', ->
       ]
 
   it 'respond to rate call', ->
+    nock('http://api.fixer.io')
+      .get('/latest')
+      .query({base: 'USD', symbols: 'EUR'})
+      .reply(200,'{"base":"USD","date":"2017-01-05","rates":{"EUR":0.95229}}');
     @room.user.say('alice', '@hubot rate EUR').then =>
-#      expect(@robot.respond).to.have.been.calledOnce
- #     expect(@robot.respond).to.have.been.calledWith(/rate ([A-Za-z]{3})/i)
       expect(@room.messages).to.eql [
         ['alice', '@hubot rate EUR']
         ['hubot','Please wait...']
+        ['hubot','@alice Exchange rate at 2017-01-05 based on USD. Rate: EUR:0.95229']
       ]
 
   it 'hears empty rate-base call', ->
