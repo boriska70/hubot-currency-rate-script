@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/boriska70/hubot-currency-rate-script.svg?branch=master)](https://travis-ci.org/boriska70/hubot-currency-rate-script)
 [![codecov](https://codecov.io/gh/boriska70/hubot-currency-rate-script/branch/master/graph/badge.svg)](https://codecov.io/gh/boriska70/hubot-currency-rate-script)
+[![Known Vulnerabilities](https://snyk.io/test/github/boriska70/hubot-currency-rate-script/badge.svg)](https://snyk.io/test/github/boriska70/hubot-currency-rate-script)
 
 
 # hubot-currency-rate-script
