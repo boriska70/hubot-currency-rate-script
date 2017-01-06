@@ -9,7 +9,7 @@ Currency exchange rate calculator. Powered by http://fixer.io/
 
 See [`src/currency-rate-script.coffee`](src/currency-rate-script.coffee) for full documentation.
 
-DISCLAIMER: this is just an example of hubot script. Please do not use on any real financial application.
+DISCLAIMER: this is just an example of hubot script. Please do not use it in any real financial application.
 
 ## Installation
 
