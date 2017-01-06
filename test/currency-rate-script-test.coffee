@@ -32,6 +32,13 @@ describe 'currency-rate-script', ->
         ['alice', '@hubot rate-convert from USD to']
       ]
 
+  it 'respond to rate call when base and symbols are the same', ->
+    @room.user.say('alice', '@hubot rate USD').then =>
+      expect(@room.messages).to.eql [
+        ['alice','@hubot rate USD']
+        ['hubot','@alice Today 1 USD = 1 USD. As always...']
+      ]
+
   it 'respond to rate call', ->
     nock('http://api.fixer.io')
       .get('/latest')
