@@ -1,10 +1,13 @@
 {
   "name": "hubot-currency-rate-script",
   "description": "Currency exchange rate calculator. Powered by http://fixer.io/",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "author": "boriska70@gmail.com <boriska70@gmail.com>",
   "license": "MIT",
-  "keywords": "hubot, hubot-scripts",
+  "keywords": [
+    "hubot",
+    "hubot-scripts"
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/boriska70/hubot-currency-rate-script.git"
@@ -36,5 +39,9 @@
   "main": "index.coffee",
   "scripts": {
     "test": "grunt test"
+  },
+  "homepage": "https://github.com/boriska70/hubot-currency-rate-script#readme",
+  "directories": {
+    "test": "test"
   }
 }
