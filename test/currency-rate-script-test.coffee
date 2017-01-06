@@ -20,10 +20,15 @@ describe 'currency-rate-script', ->
     @room.destroy()
 
   it 'respond to rate-convert', ->
+    nock('http://api.fixer.io')
+      .get('/latest')
+      .query({base: 'USD', symbols:'ILS'})
+      .reply(200, {"base":"USD","date":"2017-01-05","rates":{"ILS":3.8545}})
     @room.user.say('alice', '@hubot rate-convert from USD to ILS 100').then =>
       expect(@room.messages).to.eql [
         ['alice', '@hubot rate-convert from USD to ILS 100']
         ['hubot','Please wait...']
+        ['hubot','@alice Conversion result: 100 USD=385.45 ILS']
       ]
 
   it 'respond to rate-convert wrong format', ->
